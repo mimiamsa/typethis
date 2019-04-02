@@ -32,16 +32,25 @@ const wordLetters = document.querySelectorAll('#current_word .letter-pressed');
 
 // Change BG 
 function checkKeyPress(ev) {
+  // console.log(ev)
   const wordLetters = document.querySelectorAll('#current_word .letter-pressed');
   let wordToCheck = getLetter();
-  console.log(wordToCheck)
-  console.log(wordToCheck, wordInput.value.length)
+  // console.log(wordToCheck)
+  // console.log(wordToCheck, wordInput.value.length)
   for (let i = 0; i < wordInput.value.length; i++) {
-    console.log(i)
+    // console.log(i)
     if (wordToCheck[i] == wordInput.value[i]) {
       wordLetters[i].classList.add("is-matched")
-      console.log(wordToCheck[i]);
-    } else break;
+      // console.log(wordToCheck[i]);
+    }
+
+  }
+  if (ev.key === "Backspace") {
+    // console.log('delete letter');
+    if (wordInput.value.length >= 0) {
+      const els = document.querySelectorAll(".is-matched");
+      els[els.length - 1].classList.remove("is-matched")
+    }
   }
 }
 
@@ -54,7 +63,6 @@ function getLetter() {
     arr.push(wordLetters[i].textContent);
     // console.log(i);
   }
-  console.log(wordLetters)
   return arr
 };
 
@@ -88,7 +96,7 @@ function countDown() {
 
 
 function startMatch() {
-// console.log(matchWords())
+  // console.log(matchWords())
   if (matchWords()) {
     console.log("match")
     isPlaying = true;
