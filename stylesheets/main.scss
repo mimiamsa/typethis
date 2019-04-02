@@ -70,21 +70,22 @@ $white : white;
       &:first-child {
         margin-right: 20px;
       }
-
       font-weight: 400;
       color: $white;
       font-size: 2rem;
-
       span {
         font-size: 2rem;
       }
     }
   }
 
-
-  h1#current_word {
+  h1#current_word span{
     font-size: 6rem;
     text-align: center;
     color: white;
   }
+}
+
+.is-matched{
+background: tomato;
 }

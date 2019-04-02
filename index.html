@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="./scripts/main.js" type="module"></script>
-  <script src="./node_modules/axios/dist/axios.min.js"></script>
+
   <link rel="stylesheet" href="./stylesheets/main.css">
   <title>Typing stuff</title>
 </head>
@@ -22,11 +21,16 @@
       <h1 id="current_word">hello</h1>
       <div id="input">
         <div id="message"></div>
-        <input type="text" placeholder="Type something" id="current_typing">
+        <!-- <div id= "placeholder">Type something</div> -->
+        <input type="text" placeholder="Type" id="current_typing">
       </div>
     </div>
   </div>
 
+
+  <script src="./scripts/main.js" type="module"></script>
+  <script src="./scripts/keyboardevent.js" type="module"></script>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
 </body>
 
 </html>

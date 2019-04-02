@@ -10,9 +10,13 @@ const timeContainer = document.querySelector(".time span");
 const scoreContainer = document.querySelector(".score span");
 const message = document.getElementById("message");
 const wordInput = document.getElementById("current_typing");
+const currentWordLetter = document.querySelectorAll('.letter-pressed');
+const wordLetters = document.querySelectorAll('#current_word .letter-pressed');
+
 
 (function start() {
   //load word from array
+
   showWord(wordJungle);
   //Call countdown
   setInterval(countDown, 1000);
@@ -20,14 +24,53 @@ const wordInput = document.getElementById("current_typing");
   setInterval(checkStatus, 50);
   //Start matching on wordInput
   wordInput.addEventListener("input", startMatch);
+  // setCaretPosition(wordInput, wordInput.value.length);
+  document.addEventListener('keyup', checkKeyPress);
+
 })();
 
 
+// Change BG 
+function checkKeyPress(ev) {
+  const wordLetters = document.querySelectorAll('#current_word .letter-pressed');
+  let wordToCheck = getLetter();
+  console.log(wordToCheck)
+  console.log(wordToCheck, wordInput.value.length)
+  for (let i = 0; i < wordInput.value.length; i++) {
+    console.log(i)
+    if (wordToCheck[i] == wordInput.value[i]) {
+      wordLetters[i].classList.add("is-matched")
+      console.log(wordToCheck[i]);
+    } else break;
+  }
+}
+
+
+// return array of each letter of current Word
+function getLetter() {
+  const wordLetters = document.querySelectorAll('#current_word .letter-pressed');
+  let arr = []
+  for (let i = 0; i < wordLetters.length; i++) {
+    arr.push(wordLetters[i].textContent);
+    // console.log(i);
+  }
+  console.log(wordLetters)
+  return arr
+};
+
 function showWord(words) {
+  currentWord.textContent = "";
   // Generate random array index 
   const randIndex = Math.floor(Math.random() * words.length); // not length -1?
-  //  Output random word 
-  currentWord.innerHTML = words[randIndex];
+  // Output random word 
+  // currentWord.innerHTML = words[randIndex];
+  // Create a span for each letter of the outputted word 
+  for (let i = 0; i < words[randIndex].length; i += 1) {
+    const span = document.createElement("span");
+    span.className += "letter-pressed"
+    span.textContent = words[randIndex][i];
+    currentWord.appendChild(span);
+  }
 }
 
 function countDown() {
@@ -45,15 +88,14 @@ function countDown() {
 
 
 function startMatch() {
-
+// console.log(matchWords())
   if (matchWords()) {
     console.log("match")
-
     isPlaying = true;
     time = 12;
     showWord(wordJungle);
     wordInput.value = ''; //reset input here
-    score ++ ;
+    score++;
 
   }
   //if score is -1 display 0
@@ -66,7 +108,7 @@ function startMatch() {
 }
 
 function matchWords() {
-  if (wordInput.value === currentWord.innerHTML) {
+  if (wordInput.value === currentWord.textContent) {
     message.innerHTML = 'Correct!';
     return true;
   } else {
@@ -80,7 +122,7 @@ function checkStatus() {
   if (!isPlaying && time === 0) {
     // console.log("boug")
     message.innerHTML = "Game Over :(";
-    score = -1;
+    // score = -1;
   }
 }
 

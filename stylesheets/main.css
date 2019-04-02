@@ -55,9 +55,12 @@
       #container #outputs .score span,
       #container #outputs .time span {
         font-size: 2rem; }
-  #container h1#current_word {
+  #container h1#current_word span {
     font-size: 6rem;
     text-align: center;
     color: white; }
+
+.is-matched {
+  background: tomato; }
 
 /*# sourceMappingURL=main.css.map */
