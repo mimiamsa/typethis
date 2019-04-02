@@ -5,12 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="./node_modules/axios/dist/axios.min.js"></script>
   <script src="./scripts/main.js" type="module"></script>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="./stylesheets/main.css">
   <title>Typing stuff</title>
 </head>
 
 <body>
+
+  <div id="big_wrapper">
+    <div id="container">
+      <div id="outputs">
+        <h3 class="time">T: <span>0</span></h3>
+        <h3 class="score">S: <span>0</span></h3>
+      </div>
+      <h1 id="current_word">hello</h1>
+      <div id="input">
+        <div id="message"></div>
+        <input type="text" placeholder="Type something" id="current_typing">
+      </div>
+    </div>
+  </div>
 
 </body>
 
