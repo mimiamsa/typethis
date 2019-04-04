@@ -6,24 +6,31 @@
   font-family: 'Arimo', sans-serif;
   font-size: 16px; }
 
-#input input {
-  border: none;
-  background-image: none;
-  background-color: transparent;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none; }
-  #input input:focus {
-    outline: none; }
-  #input input::placeholder {
-    color: white; }
-#input #current_typing,
-#input #message {
-  font-size: 1.8rem;
-  text-align: center; }
-#input #message {
-  color: red;
-  margin-bottom: 20px; }
+#input {
+  display: flex;
+  flex-direction: column; }
+  #input #placeholder {
+    color: white;
+    font-size: 1.8rem; }
+  #input input {
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-align: center; }
+    #input input:focus {
+      outline: none; }
+    #input input::placeholder {
+      color: white; }
+  #input #current_typing,
+  #input #message {
+    font-size: 1.8rem;
+    align-self: center; }
+  #input #message {
+    color: red;
+    margin-bottom: 20px; }
 
 #big_wrapper {
   width: 100%;

@@ -104,7 +104,6 @@ function startMatch() {
     showWord(wordJungle);
     wordInput.value = ''; //reset input here
     score++;
-
   }
   //if score is -1 display 0
   // if(score = -1){
@@ -117,7 +116,7 @@ function startMatch() {
 
 function matchWords() {
   if (wordInput.value === currentWord.textContent) {
-    message.innerHTML = 'Correct!';
+    message.innerHTML = 'Correct!'; // word diseppear 
     return true;
   } else {
     message.innerHTML = ''; // usefull ?

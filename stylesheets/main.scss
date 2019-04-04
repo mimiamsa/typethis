@@ -12,6 +12,13 @@ $white : white;
 
 
 #input {
+  display: flex;
+  flex-direction: column;
+
+  #placeholder {
+    color: $white;
+    font-size: 1.8rem;
+  }
 
   input {
     border: none;
@@ -20,6 +27,7 @@ $white : white;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+    text-align: center; 
 
     &:focus {
       outline: none;
@@ -30,17 +38,21 @@ $white : white;
     }
   }
 
+  // #current_typing {
+  //   // max-width: 79px;
+  // }
+
   #current_typing,
   #message {
     font-size: 1.8rem;
-    text-align: center;
+    // text-align: center;
+    align-self: center;
   }
 
   #message {
     color: red;
     margin-bottom: 20px;
   }
-
 }
 
 #big_wrapper {
@@ -70,22 +82,24 @@ $white : white;
       &:first-child {
         margin-right: 20px;
       }
+
       font-weight: 400;
       color: $white;
       font-size: 2rem;
+
       span {
         font-size: 2rem;
       }
     }
   }
 
-  h1#current_word span{
+  h1#current_word span {
     font-size: 6rem;
     text-align: center;
     color: white;
   }
 }
 
-.is-matched{
-background: tomato;
+.is-matched {
+  background: tomato;
 }
